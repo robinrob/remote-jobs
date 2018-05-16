@@ -22,12 +22,6 @@ end
 
 FeedLimit = ARGV[1].nil? ? 10000 : ARGV[1]
 
-class Object
-  def numeric?
-    true if Float(self) rescue false
-  end
-end
-
 open(Url) do |rss|
   feed = SimpleRSS.parse open(Url)
   feed.channel.title.length.times { printf '-'.white }; puts
